@@ -1,7 +1,9 @@
 package ma.iibdcc.ext;
 
 import ma.iibdcc.dao.IDao;
+import org.springframework.stereotype.Component;
 
+@Component("d2")
 public class DaoImplV2 implements IDao {
 
     @Override

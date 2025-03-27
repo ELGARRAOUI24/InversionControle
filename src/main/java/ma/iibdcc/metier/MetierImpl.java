@@ -1,8 +1,14 @@
 package ma.iibdcc.metier;
 
 import ma.iibdcc.dao.IDao;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Component;
 
+@Component("metier")
 public class MetierImpl implements IMetier{
+    @Autowired
+    @Qualifier("d")
     private IDao dao; // Couplage faible
 
     /**Constructeur avec parametre qui implémente IDao au moment de l'instantiatin**/
