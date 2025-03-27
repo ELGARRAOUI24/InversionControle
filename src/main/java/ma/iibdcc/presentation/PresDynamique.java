@@ -1,14 +1,12 @@
 package ma.iibdcc.presentation;
 
-import ma.iibdcc.dao.DaoImpl;
 import ma.iibdcc.dao.IDao;
 import ma.iibdcc.metier.IMetier;
-import ma.iibdcc.metier.MetierImpl;
 
 import java.io.File;
 import java.util.Scanner;
 
-public class Presentation {
+public class PresDynamique {
     public static void main(String[] args) throws Exception {
         Scanner sc = new Scanner(new File("config.txt"));
         String doaClassName = sc.nextLine();
