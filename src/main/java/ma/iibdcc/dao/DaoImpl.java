@@ -5,6 +5,6 @@ public class DaoImpl implements IDao {
     @Override
     public double getData() {
         System.out.println("Version base de données");
-        return 0.0;
+        return 10.0;
     }
 }
