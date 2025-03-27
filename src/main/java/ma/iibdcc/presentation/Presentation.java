@@ -1,12 +1,24 @@
 package ma.iibdcc.presentation;
 
 import ma.iibdcc.dao.DaoImpl;
+import ma.iibdcc.dao.IDao;
+import ma.iibdcc.metier.IMetier;
 import ma.iibdcc.metier.MetierImpl;
 
+import java.io.File;
+import java.util.Scanner;
+
 public class Presentation {
-    public static void main(String[] args) {
-        DaoImpl dao = new DaoImpl();
-        MetierImpl mi = new MetierImpl(dao);
-        System.out.println("Résultat est : " + mi.calcul());
+    public static void main(String[] args) throws Exception {
+        Scanner sc = new Scanner(new File("config.txt"));
+        String doaClassName = sc.nextLine();
+        Class cDao = Class.forName(doaClassName);
+        IDao dao = (IDao) cDao.newInstance();
+
+        String metierClassName = sc.nextLine();
+        Class cMetier = Class.forName(metierClassName);
+        IMetier metier = (IMetier) cMetier.getConstructor(IDao.class).newInstance(dao);
+
+        System.out.println(metier.calcul());
     }
 }
